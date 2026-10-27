@@ -30,3 +30,10 @@ The trade-off: the environment must ship a usable tz database. That is the defau
 Session boundaries are inclusive on both ends. `09:00:00` is open; `13:00:00` (morning end) is still open; `14:00:00` (afternoon start) is open again. The gap `(13:00, 14:00)` is lunch and is closed. If your definition of lunch must include one of those boundary seconds, you need to adjust the session times rather than the library.
 
 Weekdays are integers `0..6` where `0` is Sunday (matching JavaScript's `Date.prototype.getDay`).
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
