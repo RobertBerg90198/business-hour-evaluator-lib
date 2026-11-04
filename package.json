@@ -1,6 +1,6 @@
 {
   "name": "business-hour-evaluator-lib",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Checks if a UTC timestamp falls within configurable business hours, weekdays, and lunch breaks for a given IANA timezone.",
   "type": "module",
   "main": "src/index.js",
